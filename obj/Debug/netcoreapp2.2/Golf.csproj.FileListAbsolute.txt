@@ -1,0 +1,11 @@
+C:\source\codeworks\Golf\obj\Debug\netcoreapp2.2\Golf.csprojAssemblyReference.cache
+C:\source\codeworks\Golf\obj\Debug\netcoreapp2.2\Golf.csproj.CoreCompileInputs.cache
+C:\source\codeworks\Golf\obj\Debug\netcoreapp2.2\Golf.AssemblyInfoInputs.cache
+C:\source\codeworks\Golf\obj\Debug\netcoreapp2.2\Golf.AssemblyInfo.cs
+C:\source\codeworks\Golf\bin\Debug\netcoreapp2.2\Golf.deps.json
+C:\source\codeworks\Golf\bin\Debug\netcoreapp2.2\Golf.runtimeconfig.json
+C:\source\codeworks\Golf\bin\Debug\netcoreapp2.2\Golf.runtimeconfig.dev.json
+C:\source\codeworks\Golf\bin\Debug\netcoreapp2.2\Golf.dll
+C:\source\codeworks\Golf\bin\Debug\netcoreapp2.2\Golf.pdb
+C:\source\codeworks\Golf\obj\Debug\netcoreapp2.2\Golf.dll
+C:\source\codeworks\Golf\obj\Debug\netcoreapp2.2\Golf.pdb
