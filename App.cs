@@ -20,22 +20,23 @@ namespace Golf.Models
 
         public void DisplayPlayerResults()
         {
-            int bestScore = 8;
-            //string winnerName = "";
+            int bestScore = 8000;
+            string winnerName = "";
             foreach (Player n in Players)
             {
-                for (int i = 0; i < Players.Count; i++)
-                {
-                    int playScore = n.Scores.Sum();
+                // for (int i = 0; i < Players.Count; i++)
+                // {
+                int playScore = n.Scores.Sum();
 
-                    if (playScore != bestScore)
-                    {
-                        bestScore = playScore;
-                    }
+                if (playScore < bestScore)
+                {
+                    bestScore = playScore;
+                    winnerName = n.Name;
                 }
-                Console.Write($"Player {n.Name} score is {bestScore}\n");
+                Console.Write($"Player {n.Name} score is {playScore}\n");
+                // }
             }
-            Console.WriteLine("Lowest Score Wins!!!");
+            Console.WriteLine($"Winner is {winnerName}!!!");
         }
 
         public void Greeting()
