@@ -20,7 +20,7 @@ namespace Golf.Models
 
         public void DisplayPlayerResults()
         {
-            int bestScore = 1000;
+            int bestScore = 8;
             //string winnerName = "";
             foreach (Player n in Players)
             {
@@ -28,14 +28,14 @@ namespace Golf.Models
                 {
                     int playScore = n.Scores.Sum();
 
-                    if (playScore < bestScore)
+                    if (playScore != bestScore)
                     {
                         bestScore = playScore;
                     }
                 }
                 Console.Write($"Player {n.Name} score is {bestScore}\n");
             }
-
+            Console.WriteLine("Lowest Score Wins!!!");
         }
 
         public void Greeting()
@@ -55,6 +55,9 @@ namespace Golf.Models
                 SelectCourse();
             }
             SetPlayers();
+            Console.Clear();
+            Console.WriteLine("The lowest Score Wins!\nAre You ready to play?\nPress any key to continue");
+            Console.ReadLine();
             for (int i = 1; i <= ActiveCourse.Holes.Count; i++)
             {
                 Console.Clear();
@@ -66,6 +69,7 @@ namespace Golf.Models
                     n.Scores.Add(s);
                 }
             }
+            Console.Clear();
             DisplayPlayerResults();
         }
 
