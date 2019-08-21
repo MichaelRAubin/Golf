@@ -10,7 +10,6 @@ namespace Golf.Interfaces
         List<Player> Players { get; set; }
         List<Course> Courses { get; set; }
 
-        // List<int> Scores { get; set; } //added
 
         void Setup(); //NOTE responsible for initializing your data and establishing relationships (ie, adding course instances to the Courses list, etc.).
         void Greeting(); //NOTE may or may not utilize this simple greeting method

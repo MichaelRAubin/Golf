@@ -11,7 +11,7 @@ namespace Golf.Models
         public Course ActiveCourse { get; set; }
         public List<Player> Players { get; set; }
         public List<Course> Courses { get; set; }
-        //public List<int> Scores { get; set; } //added from player.cs, "App" would not let me inherit from "player"
+
 
         public void DisplayCourses()
         {
@@ -20,25 +20,21 @@ namespace Golf.Models
 
         public void DisplayPlayerResults()
         {
-            int bestScore = 1000; //largest number
+            int bestScore = 1000;
             //string winnerName = "";
-            foreach (Player p in Players)
+            foreach (Player n in Players)
             {
-                int playScore = p.Scores.Sum();
-                for (int i = 0; i <= Players.Count; i++)
+                for (int i = 0; i < Players.Count; i++)
                 {
+                    int playScore = n.Scores.Sum();
+
                     if (playScore < bestScore)
                     {
-                        bestScore = playScore; //p.Scores.sum()
+                        bestScore = playScore;
                     }
-
                 }
-                Console.Clear();
-                Console.Write($"Player {p.Name} score is {bestScore}\n");
-                Console.WriteLine("");
-
+                Console.Write($"Player {n.Name} score is {bestScore}\n");
             }
-            Console.WriteLine("Lowest Scores Wins!");
 
         }
 
@@ -113,7 +109,6 @@ namespace Golf.Models
                 string name = Console.ReadLine();
                 Player n = new Player(name);
                 Players.Add(n);
-                Console.WriteLine($"You added player: {name}");
             }
         }
 
@@ -167,7 +162,7 @@ namespace Golf.Models
         {
             Players = new List<Player>();
             Courses = new List<Course>();
-            //Scores = new List<int>();
+
         }
 
     }
