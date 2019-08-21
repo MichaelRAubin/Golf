@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Golf.Interfaces;
 
 namespace Golf.Models
@@ -10,7 +11,7 @@ namespace Golf.Models
         public Course ActiveCourse { get; set; }
         public List<Player> Players { get; set; }
         public List<Course> Courses { get; set; }
-        public List<int> Scores { get; set; } //added from player.cs, "App" would not let me inherit from "player"
+        //public List<int> Scores { get; set; } //added from player.cs, "App" would not let me inherit from "player"
 
         public void DisplayCourses()
         {
@@ -19,7 +20,26 @@ namespace Golf.Models
 
         public void DisplayPlayerResults()
         {
-            //TODO need to code
+            int bestScore = 1000; //largest number
+            //string winnerName = "";
+            foreach (Player p in Players)
+            {
+                int playScore = p.Scores.Sum();
+                for (int i = 0; i <= Players.Count; i++)
+                {
+                    if (playScore < bestScore)
+                    {
+                        bestScore = playScore; //p.Scores.sum()
+                    }
+
+                }
+                Console.Clear();
+                Console.Write($"Player {p.Name} score is {bestScore}\n");
+                Console.WriteLine("");
+
+            }
+            Console.WriteLine("Lowest Scores Wins!");
+
         }
 
         public void Greeting()
@@ -39,17 +59,15 @@ namespace Golf.Models
                 SelectCourse();
             }
             SetPlayers();
-            for (int i = 1; i < ActiveCourse.Holes.Count; i++)
+            for (int i = 1; i <= ActiveCourse.Holes.Count; i++)
             {
                 Console.Clear();
                 foreach (Player n in Players)
                 {
-                    Console.WriteLine(n.Name + " " + "Hole" + " " + i);
+                    Console.Write(n.Name + " " + "Hole" + " " + i + ":");
                     string playerScore = Console.ReadLine();
                     Int32.TryParse(playerScore, out int s);
-                    Scores.Add(s);
-                    int playTotal = s++; //need to check
-                    Console.WriteLine($"Total Score:" + " " + "{playTotal}");//need to check
+                    n.Scores.Add(s);
                 }
             }
             DisplayPlayerResults();
@@ -86,12 +104,12 @@ namespace Golf.Models
         public void SetPlayers()
         {
             int i;
-            Console.WriteLine("Please enter the number of players");
+            Console.Write("Please enter the number of players: ");
             string playNum = Console.ReadLine();
             Int32.TryParse(playNum, out int p);
             for (i = 0; i < p; i++)
             {
-                Console.WriteLine("Enter Player Name: ");
+                Console.Write("Enter Player Name: ");
                 string name = Console.ReadLine();
                 Player n = new Player(name);
                 Players.Add(n);
@@ -148,8 +166,8 @@ namespace Golf.Models
         public App()
         {
             Players = new List<Player>();
-            List<Course> Courses = new List<Course>();
-            Scores = new List<int>();
+            Courses = new List<Course>();
+            //Scores = new List<int>();
         }
 
     }
